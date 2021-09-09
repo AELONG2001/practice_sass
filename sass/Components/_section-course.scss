@@ -1,0 +1,195 @@
+.section__courses {
+    cursor: pointer;
+    @include respond(mobileTablet) {
+        max-width: 36rem;
+        margin: 0 auto;
+        margin-top: -20rem;
+    }
+    @include respond(mobile) {
+        margin-top: -16rem;
+    }
+    &-content {
+        display: flex;
+        margin-left: 5.2rem;
+        @include respond(mobileTablet) {
+            flex-direction: column;
+            margin-left: 0;
+        }
+        @include respond(mobile) {
+           margin-top: -3rem;
+        }
+    }
+    & .section-btn {
+        @include respond(mobileTablet) {
+            margin-top: 0 !important;
+        }
+        & a {
+            @include respond(mobileTablet) {
+                margin-top: 0 !important;
+            }
+        }
+    }
+}
+
+.card {
+    position: relative;
+    width: 33.33333%;
+    @include respond(mobileTablet) {
+       padding-top: 76rem;
+    }
+    @include respond(mobile) {
+        width: unset;
+    }
+    &-main {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 36rem;
+        height: 45rem;
+        border-radius: 5rem;
+        backface-visibility: hidden; // Dùng để ẩn mặt sau của card front và card back
+        overflow: hidden;
+        transition: all 0.8s ease;
+    }
+    &-front {
+        background-color: $white-color;
+        box-shadow: 0 1rem 2rem rgba($black-color, 0.1);
+        @include respond(mobileTablet) {
+            z-index: 10;
+            border-radius: 5rem 5rem 0 0;
+        }
+        @include respond(mobile) {
+            width: 90%;
+            left: 5%;
+        }
+        &-img {
+            position: relative;
+            width: 100%;
+            height: 24rem;
+            background-size: cover;
+            background-blend-mode: screen;
+        }
+
+        &-img-1 {
+            background-image: linear-gradient(to right, #ffb900, #ff7730), url('../../img/course1.jpg');
+        }
+
+        &-img-2 {
+            background-image: linear-gradient(to right, $light-blue-color, $dark-blue-color), url('../../img/course2.jpg');
+        }
+
+        &-img-3 {
+            background-image: linear-gradient(to right, #55c57a, #28b485), url('../../img/course3.jpg');
+        }
+        
+        &-slogen {
+            position: absolute;
+            right: 1.5rem;
+            bottom: 22rem;
+            &--content {
+                text-align: right;
+                border-radius: 5rem;
+            }
+    
+            &--content + &--content {
+                margin: -0.5em 0.2em 0 0 ;
+                z-index: 10;
+            }
+
+            &--content-main {
+                font-size: 2.8rem;
+                font-weight: 300;
+                color: $white-color;
+                padding: 1.5rem;
+                text-transform: uppercase;
+                background-image: linear-gradient(to right, #ffb900, #ff7730);
+                border-radius: 5rem;
+            }
+
+            &--content-main--1 {
+                background-image: linear-gradient(to right, rgba(255, 185, 0, 0.85), rgba(255, 119, 48, 0.85));
+            }
+
+            &--content-main--2 {
+                background-image: linear-gradient(to right, rgba($light-blue-color, 0.85), rgba($dark-blue-color, 0.85));
+            }
+
+            &--content-main--3 {
+                background-image: linear-gradient(to right, rgba(85, 197, 122, 0.85), rgba(40, 180, 133, 0.85));
+            }
+        }
+
+        &-list {
+            width: 80%;
+            list-style: none;
+            padding: 3rem;
+            margin: 0 auto;
+            &--item {
+                font-size: $font-size-default;
+                text-align: center;
+                padding: 1rem;
+            }
+            &--item:not(:last-child) {
+                border-bottom: 0.1rem solid $border-color;
+            }
+        }
+       
+    }
+
+    &-back {
+        transform: rotateY(180deg); // Mặc định  card back sẽ quay mặt sau ra(lúc này sẽ bị ẩn)
+        @include respond(mobileTablet) {
+            transform: rotateY(0); 
+            margin-top: 30rem;
+            height: 40rem;
+        }
+        @include respond(mobile) {
+            width: 90%;
+            left: 5%;
+        }
+        &--content {
+            text-align: center;
+            @include respond(mobileTablet) {
+               margin-top: 18rem !important;
+            }
+            & a {
+                @include respond(mobileTablet) {
+                    margin-top: 0 !important;
+                }
+            }
+        }
+        &--heading {
+            font-size: $font-size-default;
+            color: $white-color;
+            text-transform: uppercase;
+        }
+
+        &--price {
+            font-size: 6rem;
+            font-weight: 100;
+            color: $white-color;
+            text-transform: uppercase;
+        }
+    }
+
+    &-back-1 {
+        background-image: linear-gradient(to right, #ffb900, #ff7730);
+    }
+
+    &-back-2 {
+        background-image: linear-gradient(to right, $light-blue-color, $dark-blue-color);
+    }
+
+    &-back-3 {
+        background-image: linear-gradient(to right, #55c57a, #28b485);
+    }
+
+    &:hover &-front {
+        transform: rotateY(-180deg);// Khi hover vào thì card front quay -180deg(sẽ hiện mặt sau của nó --> những lúc này mặt sau của nó đang bị ẩn)
+    }
+    
+    &:hover &-back {
+     transform: rotateY(0); // Khi card front bị ẩn thì card back quay trở về ban đầu 0deg(tức là quay về mặt trước -- và hiện);
+                            //Logic là khi hover  --> thì card front quay về mặt sau -- và card back quay về mặt trước(vì mặc định card back bị quay về sau)
+    }
+ }

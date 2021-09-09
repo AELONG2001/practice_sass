@@ -1,0 +1,56 @@
+.box-icon {
+    z-index: 99;
+    position: fixed;
+    top: 6rem;
+    right: 6rem;
+    width: 6rem;
+    height: 6rem;
+    background-color: $white-color;
+    border-radius: 50%;
+    box-shadow: 0 1rem 2rem rgba($black-color, 0.1);
+    @include respond(mobileTablet) {
+        top: 3.8rem;
+        right: 3rem;
+    }
+    @include respond(mobile) {
+        width: 5rem;
+        height: 5rem;
+    }
+    &-menu {
+        top: 46%;
+        left: 25%;
+        &,
+        &::before,
+        &::after {
+            position: absolute;
+            width: 3rem;
+            height: 0.3rem;
+            background-color: $grey-color;
+            transition: all 0.2s ease;
+            @include respond(mobile) {
+                width: 2.4rem;
+                height: 0.3rem;
+            }
+        }
+        &::before {
+            content: '';
+            top: -0.8rem;
+        }
+
+        &::after {
+            content: '';
+            top: 0.8rem;
+        }
+    }
+    .menu-click:checked ~ & &-menu {
+       background: transparent;
+    }
+    .menu-click:checked ~ & &-menu::before {
+        top: 0;
+        transform: rotate(135deg);
+    }
+    .menu-click:checked ~ & &-menu::after {
+        top: 0;
+        transform: rotate(-135deg);
+    }
+}

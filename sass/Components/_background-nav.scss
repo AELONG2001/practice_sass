@@ -1,0 +1,63 @@
+.background-nav {
+    z-index: 20;
+    position: fixed;
+    display: flex;
+    top: 8rem;
+    right: 8rem;
+    width: 2rem;
+    height: 2rem;
+    background-image: linear-gradient($light-blue-color, $dark-blue-color);
+    border-radius: 50%;
+    transition: all 1s;
+    .menu-click:checked ~ & {
+        transform: scale(200);
+        opacity: 1;
+    }
+    @include respond(mobileTablet) {
+        top: 5.8rem;
+        right: 5rem;
+    }
+}
+
+.box-nav {
+    position: fixed;
+    z-index: 9999;
+    opacity: 0;
+    transition: all 0.01s;
+    &-list {
+        list-style: none;
+        padding-left: 0;
+    }
+    &-item:hover {
+        transform: translateX(-0.2rem);
+    }
+    &-item + &-item {
+        padding-top: 2rem;
+    }
+    &-link {
+        position: relative;
+        font-size: 3rem;
+        font-weight: 300;
+        padding: 1rem;
+        color: $white-color;
+        background-image: radial-gradient(150% 200% ellipse at 115%, $white-color 0%, $white-color 50%, transparent 50%);
+        background-size: 252%;
+        text-transform: uppercase;
+        border-radius: 4rem;
+        text-decoration: none;
+        transition: all 0.4s ease;
+        &:hover {
+            color: $medium-blue-color;
+            background-position: 100%;
+        }
+        @include respond(mobile) {
+           font-size: 2rem;
+        }
+    }
+}
+
+.active.box-nav {
+    @include elementCenter;
+    opacity: 1;
+    transition: all 1.2s;
+}

@@ -1,0 +1,66 @@
+.section__languages {
+    width: 100%;
+    background-image: linear-gradient(to right bottom, rgba($light-blue-color, 0.8), rgba($dark-blue-color, 0.8)),
+    url("../../img/background_section-skill.jpg");
+    background-size: cover;
+    clip-path: ellipse(70% 40% at 50% 48%);
+    @include respond(mobileTablet) {
+       margin-top: -12rem;
+       clip-path: ellipse(120% 41% at 50% 48%);
+    }
+    @include respond(mobile) {
+        margin-top: -20rem;
+    }
+    &-box {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        padding: 20rem 0;
+        @include respond(mobileTablet) {
+            flex-direction: column;
+            justify-content: center;
+            height: 200rem;
+            padding: 10rem 0;
+        }
+        @include respond(mobileSmall) {
+           height: 215rem;
+        }
+       &--content {
+          display: flex;
+          flex-direction: column;
+          width: 20%;
+          height: 36rem;
+          padding: 2rem;
+          background-color: rgba($white-color, 0.8);
+          border-radius: 5rem;
+          box-shadow: 0 1rem 2rem rgba($black-color, 0.1);
+          cursor: pointer;
+          transition: all 0.3s;
+          @include respond(mobileTablet) {
+            width: 70%;
+            height: 28rem;
+            margin-bottom: 4rem;
+        }
+        @include respond(mobile) {
+            width: 80%;
+            height: 34rem;
+        }
+        @include respond(mobileSmall) {
+            width: 80%;
+            height: 36rem;
+        }
+          & .heading__main {
+            margin-bottom: 0 !important;
+          }
+          &-img {
+              margin: 0 auto;
+              width: 8rem;
+              height: 8rem;
+          }
+          &:hover {
+              transform: translateY(-1.5rem) scale(1.02);
+          }
+        }
+
+    }
+}

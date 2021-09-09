@@ -1,0 +1,139 @@
+.section__enroll {
+    background-image: linear-gradient(to right bottom, $light-blue-color, $dark-blue-color);
+    width: 100%;
+    height: 60rem;
+    margin-top: 14.8rem;
+    @include respond(mobileTablet) {
+        margin-top: 8rem;
+    }
+    @include respond(mobile) {
+      height: 52rem;
+    }
+    @include respond(mobileSmall) {
+        height: 52.8rem;
+      }
+    &-img {
+        position: relative;
+        width: $width-section;
+        margin: 0 auto;
+        background-image: url('../../img/enroll.jpg');
+        background-size: cover;
+        padding-top: 38.5%;
+        transform: translateY(5.2rem);
+        border-radius: 5rem;
+        overflow: hidden;
+        @include respond(mobileTablet) {
+           width: 50rem;
+           padding-top: 59%;
+        }
+        @include respond(mobile) {
+            width: 36rem;
+            padding-top: 100%;
+        }
+        @include respond(mobileSmall) {
+            width: 30rem;
+            padding-top: 138%;
+        }
+        &::after {
+            content: '';
+            position: absolute;
+            width: $width-section;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-color: rgba($white-color, 0.8);
+            clip-path: ellipse(50% 73% at 11% 49%);
+            -webkit-clip-path: ellipse(50% 73% at 11% 49%);
+            @include respond(mobileTablet) {
+                width: 70rem;
+            }
+            @include respond(mobile) {
+                clip-path: ellipse(50% 80% at 11% 49%);
+                -webkit-clip-path: ellipse(50% 80% at 11% 49%);
+            }
+        }
+    }
+
+    &-box {
+        display: flex;
+        flex-direction: column;
+        z-index: 10;
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 5rem;
+    }
+
+    &-input {
+        display: flex;
+        flex-direction: column;
+        margin-top: 1.8rem;
+        &--main {
+            width: 100%;
+            height: 40px;
+            padding: 1rem;
+            outline: none;
+            border: none;
+            border-radius: 0.3rem;
+            &::placeholder {
+                opacity: 0.68;
+            }
+            &:focus {
+                border-bottom: 0.2rem solid $light-blue-color;
+                transition: all 0.2s;
+            }
+        }
+        &--main + &--main {
+            margin-top: 2rem;
+        }
+    }
+
+    &-radio {
+        display: flex;
+        align-items: center;
+        margin: 3rem 0 3rem 3.3rem;
+        &--main {
+            margin-right: 3rem;
+        }
+        &--box + &--box {
+            padding-left: 6rem;
+        }
+        & label {
+            position: relative;
+            font-size: $font-size-default;
+            padding-left: 1rem;
+            user-select: none;
+        }
+        .radio-create-1,
+        .radio-create-2 {
+            position: absolute;
+            top: -0.5rem;
+            left: -3.2rem;
+            width: 3.2rem;
+            height: 3.2rem;
+            border: 0.5rem solid $medium-blue-color;
+            border-radius: 50%;
+            cursor: pointer;
+         }
+
+         .radio-create-1--after-1,
+         .radio-create-2--after-2 {
+            content: '';
+            position: absolute;
+            top: 25%;
+            left: 22%;
+            width: 1.2rem;
+            height: 1.2rem;
+            border: 0.6rem solid $medium-blue-color;
+            border-radius: 50%;
+            display: none;
+         }
+         .active.radio-create-1--after-1 {
+            display: block;
+         }
+         .active.radio-create-2--after-2 {
+            display: block;
+         }
+        
+    }
+}

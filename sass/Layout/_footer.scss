@@ -1,0 +1,92 @@
+.footer {
+    background-color: $footer-color;
+    &__box {
+        width: $width-section;
+        margin: 0 auto;
+        @include respond(mobileTablet) {
+            width: 70rem;
+        }
+        @include respond(mobile) {
+            width: 30rem;
+        }
+    }
+    &__logo {
+        padding-top: 10rem;
+        &-main a {
+            text-decoration: none;
+        }
+        &-main--icon {
+            font-size: 20rem;
+            color: $medium-blue-color;
+            @include respond(mobile) {
+                font-size: 12rem;
+            }
+        }
+        &-desc {
+            font-size: 5rem;
+            cursor: pointer;
+            @include respond(mobile) {
+                font-size: 3.5rem;
+            }
+            &--content {
+               color: $medium-blue-color;
+               text-decoration: none;
+           }
+        }
+    }
+
+    &__info {   
+        display: flex;
+        justify-content: space-between;
+        padding: 10rem 0;
+        @include respond(mobileTablet) {
+            flex-direction: column;
+        }
+        &-list {
+            list-style: none;
+            display: flex;
+            border-top: 0.1rem solid $white-color;
+            @include respond(mobile) {
+                width: 80%;
+                margin: 6rem auto 0;
+            }
+        }
+        &-item {
+            padding-top: 1rem;
+            & + & {
+                padding-left: 2rem;
+            }
+        }
+        &-link {
+            font-size: $font-size-default;
+            color: $white-color;
+            text-transform: uppercase;
+            text-decoration: none;
+            @include respond(mobile) {
+                font-size: 0.98rem;
+            }
+            &:hover {
+                color: $dark-blue-color;
+                transform: scale(1.1);
+            }
+        }
+        &-license {
+            width: 30%;
+            font-size: 1.4rem;
+            color: $white-color;
+            border-top: 0.1rem solid $white-color;
+            @include respond(mobileTablet) {
+                font-size: 1.6rem;
+                width: 100%;
+                margin-top: 6rem;
+            }
+            @include respond(mobile) {
+                width: 80%;
+                margin: 6rem auto 0;
+            }
+            &--content {
+                padding-top: 1rem;
+            }
+        }
+    }
+}

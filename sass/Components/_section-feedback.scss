@@ -1,0 +1,125 @@
+.section__feedback {
+    position: relative;
+    padding: 2rem 0;
+    @include respond(mobile) {
+      margin-top: -5rem;
+    }
+    .bg__video {
+        &-main {
+            width: 100%;
+            height: 90rem;
+            z-index: -1;
+            opacity: 0.2;
+            overflow: hidden;
+            @include respond(mobileTablet) {
+                opacity: 0;
+            }
+        }
+    }
+
+    &-box {
+        margin-top: -76rem;
+        @include respond(mobileTablet) {
+            margin-top: -84rem;
+        }
+        &--content {
+            transform: translateY(2.2rem);
+            @include respond(mobileTablet) {
+                transform: translateY(0);
+            }
+        }
+    }
+
+    &-content {
+        width: 60%;
+        height: 20rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+        background-color: rgba($white-color, 0.2);
+        box-shadow: 0 3rem 6rem rgba($black-color, 0.1);
+        border-radius: 100rem;
+        @include respond(mobileTablet) {
+            width: 90%;
+        }
+        @include respond(mobile) {
+            width: 95%;
+            height: 50rem;
+            flex-direction: column;
+            align-items: unset;
+            justify-content: unset;
+        }
+        &--heading {
+            width: 56rem;
+            padding: 3rem;
+            transform: translate(2.6rem, 0.8rem);
+            @include respond(mobile) {
+               padding: 0;
+               margin: 2rem auto 0;
+               width: 26rem;
+               transform: unset;
+            }
+            &-main {
+                transform: translateX(-1.2rem);
+                @include respond(mobile) {
+                   text-align: center;
+                   transform: unset;
+                }
+            }
+        }
+        &--img {
+            position: relative;
+            width: 15rem;
+            height: 15rem;
+            transform: translateX(2.6rem);
+            cursor: pointer;
+            clip-path: circle(50% at 50% 50%);
+            -webkit-clip-path: circle(50% at 50% 50%);
+            @include respond(mobile) {
+                transform: unset;
+                margin: 4rem auto 0;
+            }
+            .img-feedback-1{
+                width: 100%;
+                transform: translateY(-2rem);
+                transition: all 0.4s;
+            }
+
+            .img-feedback-2{
+                width: 100%;
+                transition: all 0.4s;
+            }
+    
+            & span {
+                position: absolute;
+                top: 50%;
+                left: 20%;
+                font-size: 2rem;
+                color: $white-color;
+                text-transform: uppercase;
+                opacity: 0;
+                transition: all 0.4s;
+            }
+    
+            &:hover span {
+                opacity: 1;
+                transform: translateY(-50%);
+            }
+    
+            &:hover img {
+                transform: scale(1.05);
+                filter: blur(.5rem) brightness(70%);
+            }
+            
+        }
+    }
+
+    &-content + &-content {
+        margin-top: 2rem;
+    }
+
+    &-btn {
+        transform: translateY(3rem)
+    }
+}

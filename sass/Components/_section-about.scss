@@ -1,0 +1,93 @@
+.main {
+    background-color: $light-grey-color;
+    overflow: hidden;
+}
+
+.section__about {
+    @include respond(mobileTablet) {
+        max-width: 50rem;
+        margin: 0 auto;
+    }
+    &-content {
+        max-width: $width-section;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        @include respond(mobileTablet) {
+            flex-direction: column;
+            padding-bottom: 25rem;
+        }
+        @include respond(mobile) {
+            width: 30rem;
+        }
+        @include respond(mobileSmall) {
+            width: 28rem;
+        }
+        &-left {
+            width: 50%;
+            margin-right: 16.4rem;
+            @include respond(mobile) {
+                width: unset;
+                margin-right: 0;
+            }
+        }
+        &-right {
+            width: 50%;
+        }
+    }
+}
+
+.img__first {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    cursor: pointer;
+    @include respond(mobileTablet) {
+       margin-top: 8rem;
+    }
+         
+    &-1 {
+        z-index: 1;
+    }
+
+    &-2 {
+        z-index: 2;
+        top: 4rem;
+        left: 24rem;
+        @include respond(mobile) {
+            top: 3rem;
+            left: 13.6rem;
+        }
+        @include respond(mobileSmall) {
+            left: 11.4rem;
+        }
+    }
+
+    &-3 {
+        z-index: 3;
+        top: 12rem;
+        left: 4rem;
+        @include respond(mobile) {
+            top: 8rem;
+            left: 2rem;
+        }
+    }
+
+    &-main {
+        position: absolute;
+        width: 27rem;
+        height: 18rem;
+        outline-offset: 0.8rem;
+        transition: all 0.1s;
+        @include respond(mobile) {
+            width: 16.5rem;
+            height: 11rem;
+        }
+        &:hover {
+            z-index: 10;
+            outline: 1rem solid $medium-blue-color;
+            transform: scale(1.05);
+        }
+    }
+}
+

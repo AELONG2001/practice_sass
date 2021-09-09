@@ -1,0 +1,38 @@
+.header {
+    background-image: linear-gradient(to right bottom, rgba(142, 158, 252, 0.8), rgba(28, 62, 255, 0.8)), 
+    url("../img/background_header.jpg");
+    background-size: cover;
+    background-position: top;
+    position: relative;
+    height: 95vh;
+    clip-path: ellipse(60% 60% at 50% 33%);
+    -webkit-clip-path: ellipse(60% 60% at 50% 33%);
+    @include respond(mobileTablet) {
+      clip-path: ellipse(80% 60% at 50% 33%);
+      -webkit-clip-path: ellipse(80% 60% at 50% 33%);
+    }
+    &__logo {
+      &__logo a {
+        text-decoration: none;
+      }
+      &-icon {
+        position: absolute;
+        font-size: 7.5rem;
+        color: $white-color;
+        top: 2.8rem;
+        left: 3rem;
+        @include respond(mobile) {
+          top: 3.4rem;
+          font-size: 6rem;
+        }
+      }
+     
+    }
+    &__text-box {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+}
